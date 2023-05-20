@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CJJS 教授初始化</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .subject-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .checkbox-container {
+        flex: 0 0 calc(35% - 15px);
+    }
+
+
+
+
+    form {
+        max-width: 500px;
+        margin: 0 auto;
+        background: radial-gradient(ellipse at center, #fff 70%, #ccc 100%);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+    width: 100%;
+    padding: 12px 0;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: transparent;
+    color: #333;
+    transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus {
+    border-bottom-color: #66afe9;
+    outline: none;
+    }
+
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .checkbox-label {
+      margin-left: 10px;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      display: none;
+    }
+
+    .checkbox-container input[type="checkbox"] + label {
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+    }
+
+    .checkbox-container input[type="checkbox"] + label::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .checkbox-container input[type="checkbox"]:checked + label::before {
+        background-color: #333;
+    }
+
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    .radio-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .radio-label {
+      margin-left: 10px;
+    }
+
+    .radio-container input[type="radio"] + label {
+      position: relative;
+      padding-left: 30px;
+      cursor: pointer;
+    }
+
+    .radio-container input[type="radio"] + label::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+    }
+
+    .radio-container input[type="radio"]:checked + label::before {
+      background-color: #333;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .selected-subjects {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .small {
+        font-size: 12px;
+        color: #888;
+        text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>ⒸⒿⒿⓈ</h1>
+  <h2>-教授初始化-</h2>
+  <form id="studentForm">
+    <label for="name">姓名</label>
+    <input type="text" id="name" name="name" placeholder="請輸入您的名字" required>
+    <label for="gender">性別</label>
+    <div class="radio-container">
+      <input type="radio" id="male" name="gender" value="男" required>
+      <label class="radio-label" for="male">男</label>
+      <input type="radio" id="female" name="gender" value="女" required>
+      <label class="radio-label" for="female">女</label>
+    </div>
+
+    <label for="email">電子郵件</label>
+    <input type="email" id="email" name="email" placeholder="請輸入您的電子郵件" required>
+
+    <div class="selected-subjects">
+        <h2>大一科目選擇</h2>
+        <h3>大一上</h3>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-physics" name="d1Subjects[]" value="普通物理學">
+            <label class="checkbox-label" for="d1-physics">普通物理學</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-computer" name="d1Subjects[]" value="計算機概論">
+            <label class="checkbox-label" for="d1-computer">計算機概論</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-chinese" name="d1Subjects[]" value="國文">
+            <label class="checkbox-label" for="d1-chinese">國文</label>
+          </div>
+        </div>
+        <br>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-calculus" name="d1Subjects[]" value="微積分">
+            <label class="checkbox-label" for="d1-calculus">微積分</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-history" name="d1Subjects[]" value="歷史與文化">
+            <label class="checkbox-label" for="d1-history">歷史與文化</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-law" name="d1Subjects[]" value="民族與法制">
+            <label class="checkbox-label" for="d1-law">民族與法制</label>
+          </div>
+        </div>
+        <br>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-english" name="d1Subjects[]" value="英文">
+            <label class="checkbox-label" for="d1-english">英文</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d1-digital-logic" name="d1Subjects[]" value="數位邏輯">
+            <label class="checkbox-label" for="d1-digital-logic">數位邏輯</label>
+          </div>
+          <div class="checkbox-container">
+          </div>
+          
+          
+        </div>
+        <br>
+        <div id="d1-selectionResult"></div>
+        <br>
+      </div>
+      
+
+  
+      <div class="selected-subjects">
+        <h2>大二科目選擇</h2>
+        <h3>大二上</h3>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d2-math" name="d2Subjects[]" value="工程數學">
+            <label class="checkbox-label" for="d2-math">工程數學</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d2-circuits2" name="d2Subjects[]" value="電路學(二)">
+            <label class="checkbox-label" for="d2-circuits2">電路學(二)</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d2-linear-algebra" name="d2Subjects[]" value="線性代數">
+            <label class="checkbox-label" for="d2-linear-algebra">線性代數</label>
+          </div>
+        </div>
+        <br>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d2-electromagnetics" name="d2Subjects[]" value="電磁學">
+            <label class="checkbox-label" for="d2-electromagnetics">電磁學</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d2-electronics" name="d2Subjects[]" value="電子學(一)">
+            <label class="checkbox-label" for="d2-electronics">電子學(一)</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d2-circuits-lab2" name="d2Subjects[]" value="電路實驗(二)">
+            <label class="checkbox-label" for="d2-circuits-lab2">電路實驗(二)</label>
+          </div>
+        </div>
+        <br>
+        <div id="d2-selectionResult"></div>
+        <br>
+      </div>
+      
+  
+      <div class="selected-subjects">
+        <h2>大三科目選擇</h2>
+        <h3>大三上</h3>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d3-electronics3" name="d3Subjects[]" value="電子學(三)">
+            <label class="checkbox-label" for="d3-electronics3">電子學(三)</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d3-semiconductor-physics" name="d3Subjects[]" value="半導體元件物理">
+            <label class="checkbox-label" for="d3-semiconductor-physics">半導體元件物理</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d3-microwave" name="d3Subjects[]" value="微波導論">
+            <label class="checkbox-label" for="d3-microwave">微波導論</label>
+          </div>
+        </div>
+        <br>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d3-electronics-lab2" name="d3Subjects[]" value="電子學實驗(二)">
+            <label class="checkbox-label" for="d3-electronics-lab2">電子學實驗(二)</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d3-microprocessor" name="d3Subjects[]" value="微處理機">
+            <label class="checkbox-label" for="d3-microprocessor">微處理機</label>
+          </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="d3-digital-system-design" name="d3Subjects[]" value="數位系統設計">
+            <label class="checkbox-label" for="d3-digital-system-design">數位系統設計</label>
+          </div>
+        </div>
+        <br>
+        <div class="subject-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="d3-optoelectronics" name="d3Subjects[]" value="光電概論">
+            <label class="checkbox-label" for="d3-optoelectronics">光電概論</label>
+          </div>
+        </div>
+        <br>
+        <div id="d3-selectionResult"></div>
+        <br>
+        <br><br><input type="submit" value="提交表單">
+        <br><br>
+        <small class="credit">＜Made by CJJS＞</Made></small>
+      </div>
+    </form>
+  
+
+  <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+  <script>
+    // LIFF API初始化
+    window.onload = function () {
+      liff.init({
+        liffId: "1660804415-yPDr1Ymz"
+      }).then(() => {
+        // 成功初始化LIFF API後，可以在這裡繼續處理相關邏輯
+      }).catch((error) => {
+        // 初始化失敗的處理邏輯
+        console.error(error);
+      });
+    };
+
+    // 資料回傳函式
+    function sendData(data) {
+      liff.sendMessages([{
+        type: 'text',
+        text: JSON.stringify(data) // 將資料轉換成字串後回傳
+      }]).then(() => {
+        liff.closeWindow(); // 回傳資料後關閉LIFF視窗
+      }).catch((error) => {
+        console.error(error);
+      });
+    }
+
+    const form = document.getElementById("studentForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      // 取得表單資料
+      const name = document.getElementById("name").value;
+      const gender = document.querySelector('input[name="gender"]:checked').value;
+      const email = document.getElementById("email").value;
+      // 取得選擇的科目
+      const d1Subjects = Array.from(document.querySelectorAll('input[name="d1Subjects[]"]:checked')).map((checkbox) => checkbox.value);
+      const d2Subjects = Array.from(document.querySelectorAll('input[name="d2Subjects[]"]:checked')).map((checkbox) => checkbox.value);
+      const d3Subjects = Array.from(document.querySelectorAll('input[name="d3Subjects[]"]:checked')).map((checkbox) => checkbox.value);
+
+      // 建立資料物件
+      const data = {
+        name: name,
+        gender: gender,
+        email: email,
+        d1Subjects: d1Subjects,
+        d2Subjects: d2Subjects,
+        d3Subjects: d3Subjects
+      };
+
+      sendData(data); // 傳送資料
+    });
+  </script>
+</body>
+</html>
+
